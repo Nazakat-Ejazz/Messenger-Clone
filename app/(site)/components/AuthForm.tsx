@@ -50,11 +50,19 @@ const AuthForm = () => {
       // AXios call for register
       const res = await axios
         .post("/api/register", data)
-        .catch(() => toast.error("Something went wrong!"))
+        .catch(() =>
+          toast.error("Something went wrong!", {
+            position: "top-right",
+            duration: 4000,
+          })
+        )
         .finally(() => setIsLoading(false));
 
       if (res) {
-        toast.success("Success! New user created");
+        toast.success("Success! New user created", {
+          position: "top-right",
+          duration: 4000,
+        });
         signIn("credentials", data);
       }
     }
@@ -69,7 +77,10 @@ const AuthForm = () => {
             toast.error(callback.error);
           }
           if (callback?.ok && !callback?.error) {
-            toast.success("Success ! User logged in successfully.");
+            toast.success("Success ! User logged in successfully.", {
+              position: "top-right",
+              duration: 4000,
+            });
             router.push("/users");
           }
         })
@@ -83,11 +94,17 @@ const AuthForm = () => {
     signIn(action, { redirect: false })
       .then((callback) => {
         if (callback?.error) {
-          toast.error("Error : Login failed");
+          toast.error("Error : Login failed", {
+            position: "top-right",
+            duration: 4000,
+          });
         }
 
         if (callback?.ok && !callback?.error) {
-          toast.success("Success: User logged in successfully");
+          toast.success("Success: User logged in successfully", {
+            position: "top-right",
+            duration: 4000,
+          });
         }
       })
       .finally(() => setIsLoading(false));

@@ -56,7 +56,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
         router.refresh();
         onClose();
       })
-      .catch(() => toast.error("Something went wrong!"))
+      .catch(() => toast.error("Something went wrong!", {
+        position: "top-right",
+        duration: 4000,
+      }))
       .finally(() => setIsLoading(false));
   };
   return (

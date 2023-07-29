@@ -26,10 +26,15 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose }) => {
       .delete(`/api/conversations/${conversationId}`)
       .then(() => {
         onClose();
-        router.push("/conversations");
+        router.push(`/conversations`);
         router.refresh();
       })
-      .catch(() => toast.error("Something went wrong inside ConfirmModal!"));
+      .catch(() =>
+        toast.error("Something went wrong inside ConfirmModal!", {
+          position: "top-right",
+          duration: 4000,
+        })
+      );
   }, [conversationId, router, onClose]);
   return (
     <Modal isOpen={isOpen} onClose={onClose}>

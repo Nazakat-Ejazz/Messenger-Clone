@@ -139,7 +139,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   </dt>
                                   <dd className="mt-1 text-sm text-gray-400 sm:col-span-2">
                                     {data.users.map((user) => (
-                                      <p>{user.name}</p>
+                                      <p key={user.id}>{user.name}</p>
                                     ))}
                                   </dd>
                                   <hr className="w-full h-px my-8 bg-gray-400 border-0 text-gray-400" />
@@ -148,7 +148,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   </dt>
                                   <dd className="mt-1 text-sm text-gray-400 sm:col-span-2">
                                     {data.users.map((user) => (
-                                      <p>{user.email}</p>
+                                      <p key={user.email}>{user.email}</p>
                                     ))}
                                   </dd>
                                 </div>
@@ -166,14 +166,6 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                               {!data.isGroup && (
                                 <>
                                   <hr />
-                                  {/* <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
-                                  Joined
-                                </dt>
-                                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
-                                  <time dateTime={joinedDate}>
-                                    {joinedDate}
-                                  </time>
-                                </dd> */}
                                   <div>
                                     <dt className="text-sm font-medium text-gray-500 sm:w-40sm:flex-shrink-0">
                                       Joined
