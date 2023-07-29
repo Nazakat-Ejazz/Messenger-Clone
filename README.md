@@ -3,7 +3,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 Deployment Link : https://messenger-clone-iota-five.vercel.app
-Source Code : https://github.com/Nazakat-Ejazz/Messenger-Clone
 
 It's a MERN Stack based Messenger ( famous chatting application 's ) clone made using aforementioned technologies in addition to technologies like tailwind,pusher, using ReactJs framework , known as NextJs.
 
