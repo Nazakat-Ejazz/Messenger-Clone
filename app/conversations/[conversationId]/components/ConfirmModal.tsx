@@ -52,7 +52,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose }) => {
           <div className="mt-2">
             <p className="text-sm text-gray-500">
               Are you sure you want to delete this conversation ? This action
-              can't be reversed.
+              can&apos;t be reversed.
             </p>
           </div>
         </div>

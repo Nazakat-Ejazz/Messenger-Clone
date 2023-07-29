@@ -144,7 +144,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   </dd>
                                   <hr className="w-full h-px my-8 bg-gray-400 border-0 text-gray-400" />
                                   <dt className="mt-3 text-md font-medium text-black sm:w-40 sm:flex-shrink-0">
-                                    Participant's Emails
+                                    Participant&apos;s Emails
                                   </dt>
                                   <dd className="mt-1 text-sm text-gray-400 sm:col-span-2">
                                     {data.users.map((user) => (
