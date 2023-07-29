@@ -4,15 +4,12 @@ import { useCallback, useMemo } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Conversation, Message, User } from "@prisma/client";
-
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import clsx from "clsx";
 import { fullConversationType } from "@/app/types";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import Avatar from "@/app/components/Avatar";
-import formatDistance from "date-fns/fp/formatDistance/index.js";
 import AvatarGroup from "@/app/components/AvatarGroup";
 
 interface ConversationBoxProps {
@@ -30,7 +27,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
 
   const handleClick = useCallback(() => {
     router.push(`/conversations/${data.id}`);
-  }, [data.id, router]);
+  }, [data, router]);
 
   const lastMessage = useMemo(() => {
     const messages = data.messages || [];
@@ -38,9 +35,10 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     return messages[messages.length - 1];
   }, [data.messages]);
 
-  const userEmail = useMemo(() => {
-    return session?.data?.user?.email;
-  }, [session?.data?.user?.email]);
+  const userEmail = useMemo(
+    () => session?.data?.user?.email,
+    [session?.data?.user?.email]
+  );
 
   const hasSeen = useMemo(() => {
     if (!lastMessage) {
@@ -56,14 +54,14 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
   }, [userEmail, lastMessage]);
 
   const lastMessageText = useMemo(() => {
-    // if last message is a text
+    // if last message is an image
     if (lastMessage?.image) {
       return "Sent an image!";
     }
 
     // if last message is a text
     if (lastMessage?.body) {
-      return lastMessage.body;
+      return lastMessage?.body;
     }
 
     // if there is no last message!
@@ -101,6 +99,15 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
               hasSeen ? "text-gray-500" : "text-black font-medium"
             )}
           >
+            {lastMessageText === "Started a conversation!" ? (
+              ""
+            ) : (
+              <span className="mr-1">
+                {userEmail === lastMessage?.sender?.email
+                  ? "You: "
+                  : lastMessage?.sender?.name?.split(" ")[0] + ": "}
+              </span>
+            )}
             {lastMessageText}
           </p>
         </div>
