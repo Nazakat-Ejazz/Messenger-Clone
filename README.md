@@ -2,6 +2,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Deployment Link : https://messenger-clone-iota-five.vercel.app
+Source Code : https://github.com/Nazakat-Ejazz/Messenger-Clone
+
+     It's a MERN Stack based Messenger ( famous chatting application 's ) clone made using aforementioned technologies in addition to technologies like tailwind,pusher, using ReactJs framework , known as NextJs.
+
+Following are key features included :
+    1) Google , GitHub and Credentials authentications
+    2) Individual and Group Chat 
+    3) Notifications and User Interactions using toasts (lib:react-hot-toast)
+    4) Real time messaging using Pusher
+    5) Online and Offline status
+    6) Message Seen functionality
+    7) Media attached with Message , pushed to online server , to avoid image corrupt.
+    8) User Profile Customisation  
+    9) Fully responsive design
+
+This project showcases how to write GET,POST,UPDATE,DELETE routes and their respective handlers.It is deployed on Vercel.
+
 First, run the development server:
 
 ```bash
